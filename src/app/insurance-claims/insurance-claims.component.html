@@ -1,0 +1,52 @@
+<p>insurance-claims works!</p>
+<div class="jumbotron">
+    <form [formGroup]="Claimform"  (ngSubmit)="Claim()">
+<div class="form-group">
+    <div style="text-align:center">
+        <label>Policy Number</label><br>
+    <input  type="number" ng-model="PolicyNumber"  placeholder=" Enter your Policy Number" class="form-control" formcontrolname="PolicyNumber" >
+    <div *ngIf="!Claimform.get('PolicyNumber')?.valid && (Claimform.get('PolicyNumber')?.dirty|| Claimform.get('PolicyNumber')?.touched)" 
+        class="error">
+            <div *ngIf="Claimform.get('PolicyNumber')?.errors?.['required']">
+                <small class="text-danger">Enter your Policy Number</small>
+            </div>
+    </div>
+    </div>
+</div>
+<br>
+
+<div class="form-group">
+    <div style="text-align:center">
+        <label>Mobile Number</label><br>
+    <input  type="number" ng-model="MobileNumber"  placeholder=" Enter your registered Mobile Number" class="form-control" formcontrolname="MobileNumber">
+    <div *ngIf="!Claimform.get('MobileNumber')?.valid && (Claimform.get('MobileNumber')?.dirty|| Claimform.get('MobileNumber')?.touched)" 
+        class="error">
+            <div *ngIf="Claimform.get('MobileNumber')?.errors?.['required']">
+                <small class="text-danger">Enter your Mobile Number</small>
+            </div>
+            
+
+            
+    </div>
+    
+    
+</div>
+<br>
+
+<div  action="#">
+    <div style="text-align:center">
+    <label for="Reason To Claim">Reason To Claim Insurance</label><br>
+    <select name="Reason" id="Reason">
+      <option value="Choose">Select Reason</option>
+      <option value="Natural Disaster">Natural Disaster</option>
+      <option value="ManMade Disaster">Man Made Disaster</option>
+      <option value="Road Accident">Road Accident</option>
+      <option value="Theft">Theft</option>
+    </select>
+</div>
+<br>
+<br>
+<div style="text-align: center">
+<button type="submit" (Click)="Claim()">Submit</button>
+</div>
+
